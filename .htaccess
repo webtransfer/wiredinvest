@@ -1,0 +1,56 @@
+DirectoryIndex index.php
+
+AddDefaultCharset WINDOWS-1251
+php_value default_charset "cp1251"
+
+RewriteEngine On
+
+# Основной домен
+RewriteCond %{HTTP_HOST} ^www\.(.*) [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+# Основные страницы
+RewriteRule ^index.html$ index.php [L]
+RewriteRule ^stat(/?)+$ index.php?menu=stat [L]
+RewriteRule ^rules(/?)+$ index.php?menu=rules [L]
+RewriteRule ^news(/?)+$ index.php?menu=news [L]
+RewriteRule ^about(/?)+$ index.php?menu=about [L]
+RewriteRule ^help(/?)+$ index.php?menu=help [L]
+RewriteRule ^signup/key/(.*)(/?)+$ index.php?menu=signup&key=$1 [L]
+RewriteRule ^signup(/?)+$ index.php?menu=signup [L]
+RewriteRule ^recovery(/?)+$ index.php?menu=recovery [L]
+RewriteRule ^reklama(/?)+$ index.php?menu=reklama [L]
+RewriteRule ^users(/?)+$ index.php?menu=users [L]
+
+# Серфинг
+RewriteRule ^serfing(/?)+$ index.php?menu=account&sel=serfing [L]
+RewriteRule ^serfing/edit/([0-9]+)(/?)+$ index.php?menu=account&sel=serfing_add&advedit=$1 [L]
+RewriteRule ^serfing/delete/([0-9]+)(/?)+$ index.php?menu=account&sel=serfing&delete=$1 [L]
+RewriteRule ^serfing/add(/?)+$ index.php?menu=account&sel=serfing_add [L]
+RewriteRule ^serfing/cabinet(/?)+$ index.php?menu=account&sel=serfing_cabinet [L]
+RewriteRule ^serfing/moder(/?)+$ index.php?menu=account&sel=serfing_moder [L]
+RewriteRule ^serfing/view/([0-9]+)(/?)+$ _serfing_view.php?view=$1 [L]
+RewriteRule ^serfing_guest(/?)+$ index.php?menu=serfing_guest [L]
+
+# Аккаунт
+RewriteRule ^competition(/?)+$ index.php?menu=competition [L]
+RewriteRule ^competition/list(/?)+$ index.php?menu=competition&list [L]
+RewriteRule ^competition/list2(/?)+$ index.php?menu=competition&list2 [L]
+RewriteRule ^bonus(/?)+$ index.php?menu=account&sel=bonus [L]
+RewriteRule ^bonus2(/?)+$ index.php?menu=account&sel=bonus2 [L]
+RewriteRule ^bonus3(/?)+$ index.php?menu=account&sel=bonus3 [L]
+RewriteRule ^lottery(/?)+$ index.php?menu=account&sel=lottery [L]
+RewriteRule ^lottery/winners(/?)+$ index.php?menu=account&sel=lottery&winners [L]
+RewriteRule ^bank(/?)+$ index.php?menu=account&sel=bank [L]
+RewriteRule ^invest(/?)+$ index.php?menu=account&sel=invest [L]
+RewriteRule ^wall/([-a-zA-Z0-9_]+)(/?)+$ index.php?menu=account&sel=wall&name=$1 [L]
+RewriteRule ^wall(/?)+$ index.php?menu=account&sel=wall [L]
+RewriteRule ^settings(/?)+$ index.php?menu=account&sel=settings [L]
+RewriteRule ^insert(/?)+$ index.php?menu=account&sel=insert [L]
+RewriteRule ^withdrawals/([0-9]+)(/?)+$ index.php?menu=account&sel=withdrawals&pay_id=$1 [L]
+RewriteRule ^withdrawals(/?)+$ index.php?menu=account&sel=withdrawals [L]
+RewriteRule ^reinvest(/?)+$ index.php?menu=account&sel=reinvest [L]
+RewriteRule ^referrals(/?)+$ index.php?menu=account&sel=referrals [L]
+RewriteRule ^chat(/?)+$ index.php?menu=account&sel=chat [L]
+RewriteRule ^output(/?)+$ index.php?menu=account&sel=output [L]
+RewriteRule ^profile(/?)+$ index.php?menu=account [L]
