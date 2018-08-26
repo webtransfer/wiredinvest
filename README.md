@@ -1,1 +1,1 @@
-# wiredinvest
+# Wired Invest
